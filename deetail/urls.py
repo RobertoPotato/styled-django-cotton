@@ -26,6 +26,8 @@ urlpatterns = [
     path("bills", views.bills, name="bills"),
     path("tickets", views.tickets, name="tickets"),
     path("reports", include("reports.urls")),
+    path("leads", views.leads, name="leads"),
+    path("expenses", views.expenses, name="expenses"),
     
 
 ]
