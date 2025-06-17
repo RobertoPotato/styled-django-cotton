@@ -22,9 +22,9 @@ from deetail import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.home, name="home"),
-    path("customers", views.home, name="customers"),
-    path("bills", views.home, name="bills"),
-    path("tickets", views.home, name="tickets"),
+    path("customers", views.customers, name="customers"),
+    path("bills", views.bills, name="bills"),
+    path("tickets", views.tickets, name="tickets"),
     path("reports", include("reports.urls")),
     
 
