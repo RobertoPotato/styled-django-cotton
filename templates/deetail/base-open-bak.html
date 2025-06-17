@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}DaisyTail{% endblock %}</title>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/output.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body class="bg-gray-100">
+
+    <!-- Drawer layout for sidebar -->
+    <div class="drawer drawer-mobile">
+        <input id="sidebar-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col">
+
+            <!-- Top Navbar -->
+            <div class="w-full navbar bg-base-100 shadow-md px-4">
+                <div class="flex-none lg:hidden">
+                    <label for="sidebar-toggle" class="btn btn-square btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </label>
+                </div>
+                <div class="flex-1 px-2 text-xl font-semibold">DaisyTail</div>
+                <div class="flex-none">
+                    <div class="dropdown dropdown-end">
+                        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-10 rounded-full">
+                                <img src="https://i.pravatar.cc/100" />
+                            </div>
+                        </label>
+                        <ul tabindex="0"
+                            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a>Profile</a></li>
+                            <li><a>Settings</a></li>
+                            <li><a>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page content -->
+            <main class="p-6">
+                {% block content %}
+                <!-- Page content goes here -->
+                {% endblock %}
+            </main>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="drawer-side">
+            <label for="sidebar-toggle" class="drawer-overlay"></label>
+            <ul class="menu p-4 w-64 bg-base-200 text-base-content">
+                <!-- Sidebar content here -->
+                <li><a href="#">🏠 Home</a></li>
+                <li><a href="#">👥 Customers</a></li>
+                <li><a href="#">💳 Bills</a></li>
+                <li><a href="#">🎫 Tickets</a></li>
+                <li>
+                    <details>
+                        <summary>📊 Reports</summary>
+                        <ul>
+                            <li><a href="#">Financial</a></li>
+                            <li><a href="#">Occupation</a></li>
+                            <li><a href="#">Property</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
