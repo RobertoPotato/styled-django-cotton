@@ -28,6 +28,8 @@ urlpatterns = [
     path("reports", include("reports.urls")),
     path("leads", views.leads, name="leads"),
     path("expenses", views.expenses, name="expenses"),
+    path("properties", views.properties, name="properties"),
+    path("unit-types", views.unit_types, name="unit_types"),
     
 
 ]

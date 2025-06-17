@@ -22,3 +22,11 @@ def leads(request):
 
 def expenses(request):
     return render(request, 'expenses/expenses.html')
+
+
+def properties(request):
+    return render(request, 'properties/properties.html')
+
+
+def unit_types(request):
+    return render(request, 'unit_types/unit_types.html')
