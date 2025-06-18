@@ -1,0 +1,43 @@
+<div class="card bg-base-100 shadow-md p-4 w-full mb-6">
+    <div>
+        <canvas id="expensesChart"></canvas>
+    </div>
+</div>
+
+<script>
+(function () {
+    const labels = ['January', 'February', 'March', 'April', 'May', 'June'];
+    const data = [8, 14, 7, 11, 6, 4];
+    const ctx = document.getElementById('expensesChart').getContext('2d');
+
+    if (window.expensesChartInstance) {
+        window.expensesChartInstance.destroy();
+    }
+
+    window.expensesChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Expenses',
+                data,
+                backgroundColor: 'rgba(239, 68, 68, 0.7)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Monthly Expenses'
+                }
+            },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+})();
+</script>

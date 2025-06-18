@@ -1,7 +1,18 @@
 {% extends "deetail/base.html" %}
 
 {% block content %}
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-</p>
+<div class="space-y-8">
+    <!-- First row: two side-by-side bar graphs -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <c-occupancy-chart></c-occupancy-chart>
+        <c-expenses-chart></c-expenses-chart>
+    </div>
+
+    <!-- Second row: grid of three plot components -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <c-leads-chart></c-leads-chart>
+        <c-tickets-chart></c-tickets-chart>
+        <c-bills-chart></c-bills-chart>
+    </div>
+</div>
 {% endblock %}

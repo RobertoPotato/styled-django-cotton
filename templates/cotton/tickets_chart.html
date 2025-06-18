@@ -1,0 +1,35 @@
+<div class="card bg-base-100 shadow-md p-4 w-full mb-6">
+    <h2 class="text-lg font-semibold mb-4">Tickets</h2>
+    <canvas id="ticketsPieChart"></canvas>
+</div>
+
+<script>
+(function () {
+    const labels = ['Open', 'In Progress', 'Closed'];
+    const data = [25, 50, 25];
+
+    const ctx = document.getElementById('ticketsPieChart').getContext('2d');
+
+    if (window.ticketsPieInstance) {
+        window.ticketsPieInstance.destroy();
+    }
+
+    window.ticketsPieInstance = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels,
+            datasets: [{
+                data,
+                backgroundColor: ['#f87171', '#fb923c', '#4ade80'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom' }
+            }
+        }
+    });
+})();
+</script>

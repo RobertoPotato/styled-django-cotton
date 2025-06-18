@@ -1,0 +1,35 @@
+<div class="card bg-base-100 shadow-md p-4 w-full mb-6">
+    <h2 class="text-lg font-semibold mb-4">Bills</h2>
+    <canvas id="billsPieChart"></canvas>
+</div>
+
+<script>
+(function () {
+    const labels = ['Paid', 'Unpaid', 'Overdue'];
+    const data = [55, 30, 15];
+
+    const ctx = document.getElementById('billsPieChart').getContext('2d');
+
+    if (window.billsPieInstance) {
+        window.billsPieInstance.destroy();
+    }
+
+    window.billsPieInstance = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels,
+            datasets: [{
+                data,
+                backgroundColor: ['#10b981', '#fbbf24', '#ef4444'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom' }
+            }
+        }
+    });
+})();
+</script>
